@@ -1,0 +1,26 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<h2>Modifier utilisateur</h2>
+<form action="/admin/users/edit/<%= user.id %>" method="POST" style="max-width:400px;">
+  <div>
+    <label>Nom</label>
+    <input type="text" name="name" value="<%= user.name %>" required>
+  </div>
+
+  <div>
+    <label>Username</label>
+    <input type="text" name="username" value="<%= user.username %>" required>
+  </div>
+
+  <div>
+    <label>Rôle</label>
+    <select name="role" required>
+      <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>Utilisateur</option>
+      <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+    </select>
+  </div>
+
+  <button type="submit">Mettre à jour</button>
+  <a href="/admin/users">Annuler</a>
+</form>

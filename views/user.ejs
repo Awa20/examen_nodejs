@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<h2>Créer un utilisateur</h2>
+<form action="/admin/users/create" method="POST" style="max-width: 400px;">
+  <div>
+    <label>Nom</label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div>
+    <label>Nom utilisateur</label>
+    <input type="text" name="username" required>
+  </div>
+
+  <div>
+    <label>Mot de passe</label>
+    <input type="password" name="password" required>
+  </div>
+
+  <div>
+    <label>Rôle</label>
+    <select name="role" required>
+      <option value="user">Utilisateur</option>
+      <option value="admin">Admin</option>
+    </select>
+  </div>
+
+  <button type="submit">Créer</button>
+  <a href="/dashboard" class="btn-retour">Retour </a>
+</form>

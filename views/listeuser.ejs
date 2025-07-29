@@ -1,0 +1,33 @@
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<h2>Liste des utilisateurs</h2>
+
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Username</th>
+      <th>Rôle</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(u => { %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.name %></td>
+        <td><%= u.username %></td>
+        <td><%= u.role %></td>
+        <td>
+      <form action="/admin/users/delete/<%= u.id %>" method="POST" onsubmit="return confirm('Confirmer la suppression ?')">
+        <button type="submit">Supprimer</button>
+      </form>
+    </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<a href="/dashboard" class="btn btn-secondary">Retour au Dashboard</a>
+<a href="/admin/users/create-form" class="btn btn-primary">Créer un utilisateur</a>

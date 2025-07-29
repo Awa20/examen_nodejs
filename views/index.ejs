@@ -1,0 +1,63 @@
+
+<h1>📚 Liste des Étudiants</h1>
+
+<% if (user && user.role === 'admin') { %>
+  <a href="/etudiants/ajouter" class="btn btn-primary">➕ Ajouter un étudiant</a>
+<% } %>
+
+<% if (success) { %>
+  <div class="alert alert-success"><%= success %></div>
+<% } %>
+<% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+
+<% if (etudiants.length > 0) { %>
+  <table border="1" cellpadding="10" class="table">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Date de Naissance</th>
+        <th>Classe</th>
+        <th>Filière</th>
+        <th>Université</th>
+        <th>Adresse</th>
+        <th>Sexe</th>
+        <th>Nationalité</th>
+        <% if (user && user.role === 'admin') { %><th>Actions</th><% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% etudiants.forEach(etudiant => { %>
+        <tr>
+          <td><%= etudiant.matricule %></td>
+          <td><%= etudiant.nom %></td>
+          <td><%= etudiant.prenom %></td>
+          <td><%= etudiant.date_naiss %></td>
+          <td><%= etudiant.classe %></td>
+          <td><%= etudiant.filiere %></td>
+          <td><%= etudiant.universite %></td>
+          <td><%= etudiant.adresse %></td>
+          <td><%= etudiant.sexe %></td>
+          <td><%= etudiant.nationalite %></td>
+          <% if (user && user.role === 'admin') { %>
+            <td>
+              <a href="/etudiants/modifier/<%= etudiant.id %>" class="btn btn-warning">Modifier
+              </a>
+              <form action="/etudiants/supprimer/<%= etudiant.id %>" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('Confirmer la suppression ?')">Supprimer</button>
+              </form>
+            </td>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  
+<% } %>
+
+
+<a href="/dashboard" class="btn btn-secondary">Retour au Dashboard</a>

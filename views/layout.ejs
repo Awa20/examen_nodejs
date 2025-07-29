@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= typeof title !== 'undefined' ? title : 'GESTION ETUDIANTS' %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+ <header class="navbar">
+  <div class="navbar-left">
+    <h2>Application Gestion des Etudiants</h2>
+  </div>
+
+  <div class="navbar-right">
+    <form action="/logout" method="POST" class="logout-form">
+      <button class="btn btn-deconnexion">🔒 Déconnexion</button>
+    </form>
+  </div>
+</header>
+
+  <% if (typeof success !== 'undefined' && success) { %>
+  <div class="flash success" id="flash-message"><%= success %></div>
+<% } %>
+  <% if (error) { %>
+    <div class="flash error" id="flash-message"><%= error %></div>
+  <% } %>
+
+  <main>
+    <%- body %>  <!-- C'est ici que le contenu des vues sera injecté -->
+  </main>
+ <footer>
+    <p>&copy; 2025  GESTION DES ETUDIANTS</p>
+  </footer>
+ 
+  <script>
+    const flash = document.getElementById('flash-message');
+    if (flash) {
+      setTimeout(() => {
+        flash.style.opacity = '0';
+        setTimeout(() => flash.remove(), 500);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

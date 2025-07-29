@@ -1,0 +1,28 @@
+{
+  "name": "dev_crud_etudiants",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^8.0.2",
+    "cookie-parser": "^1.4.7",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.2",
+    "sequelize": "^6.37.7"
+  }
+}

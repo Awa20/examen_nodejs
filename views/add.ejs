@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajouter un étudiant</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/etudiant.css">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>➕ Ajouter un étudiant</h2>
+
+    <% if (typeof erreur !== 'undefined') { %>
+      <div class="flash error"><%= erreur %></div>
+    <% } %>
+
+    <form action="/etudiants/ajouter" method="POST">
+      <label>Matricule :
+        <input type="text" name="matricule" required>
+      </label><br>
+
+      <label>Nom :
+        <input type="text" name="nom" required>
+      </label><br>
+
+      <label>Prénom :
+        <input type="text" name="prenom" required>
+      </label><br>
+
+      <label>Date de naissance :
+        <input type="date" name="date_naiss" required>
+      </label><br>
+
+      <label>Classe :
+        <input type="text" name="classe" required>
+      </label><br>
+
+      <label>Filière :
+        <input type="text" name="filiere" required>
+      </label><br>
+
+      <label>Université :
+        <input type="text" name="universite" required>
+      </label><br>
+
+      <label>Adresse :
+        <input type="text" name="adresse" required>
+      </label><br>
+
+      <label>Sexe :
+        <select name="sexe" required>
+          <option value="">-- Choisir --</option>
+          <option value="masculin">Masculin</option>
+          <option value="feminin">Féminin</option>
+        </select>
+      </label><br>
+
+      <label>Nationalité :
+        <input type="text" name="nationalite" required>
+      </label><br>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-ajouter"> Ajouter</button>
+        <a href="/dashboard" class="btn-retour"> Retour à la liste</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

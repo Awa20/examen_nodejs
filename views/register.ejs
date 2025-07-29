@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- Si tu as un fichier CSS -->
+</head>
+<body>
+  <div class="container">
+    <h2>Inscription</h2>
+
+    <% if (error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <form action="/register" method="POST">
+      <div class="form-group">
+        <label for="name">Nom complet</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" name="username" id="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Rôle</label>
+        <select name="role" id="role" required>
+          <option value="user" selected>Utilisateur</option>
+          <option value="admin">Administrateur</option>
+        </select>
+      </div>
+
+      <button type="submit">S’inscrire</button>
+    </form>
+
+    <p>Déjà inscrit ? <a href="/login">Connexion</a></p>
+  </div>
+</body>
+</html>

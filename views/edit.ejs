@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/etudiant.css">
+    <title>Modifier un étudiant</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Modifier un étudiant</h2>
+        <form action="/etudiants/modifier/<%= etudiant.id %>" method="POST">
+            <label>Matricule : <input type="text" name="matricule" value="<%= etudiant.matricule %>" required></label><br>
+            <label>Nom : <input type="text" name="nom" value="<%= etudiant.nom %>" required></label><br>
+            <label>Prénom : <input type="text" name="prenom" value="<%= etudiant.prenom %>" required></label><br>
+            <label>Date de naissance : 
+            <input type="date" name="date_naiss" value="<%= etudiant.date_naiss.toISOString().substring(0, 10) %>" required>
+            </label><br>
+            <label>Classe : <input type="text" name="classe" value="<%= etudiant.classe %>" required></label><br>
+            <label>Filière : <input type="text" name="filiere" value="<%= etudiant.filiere %>" required></label><br>
+            <label>Université : <input type="text" name="universite" value="<%= etudiant.universite %>" required></label><br>
+            <label>Adresse : <input type="text" name="adresse" value="<%= etudiant.adresse %>" required></label><br>
+            <label>Sexe :
+                <select name="sexe" required>
+                    <option value="">-- Choisir --</option>
+                    <option value="masculin" <%= etudiant.sexe === 'masculin' ? 'selected' : '' %>>Masculin</option>
+                    <option value="feminin" <%= etudiant.sexe === 'feminin' ? 'selected' : '' %>>Féminin</option>
+                </select>
+            </label><br>
+            <label>Nationalité : <input type="text" name="nationalite" value="<%= etudiant.nationalite %>" required></label><br>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-modifier">Mettre à jour</button>
+                <a href="/dashboard" class="btn-retour">Retour à la liste</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
